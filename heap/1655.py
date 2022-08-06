@@ -22,6 +22,20 @@ def max_heap(temp):
             return
         i = t
 
+def max_check():
+    i = 1
+    temp = i * 2
+    while temp <= left:
+        if l_heap[i] > l_heap[temp] and l_heap[i]> l_heap[temp+1]:
+            return
+        if temp != left and l_heap[temp] < l_heap[temp+1]:
+            temp += 1
+        
+        l_heap[temp], l_heap[i] = l_heap[i], l_heap[temp]
+        
+        i = temp
+        temp = i * 2
+
 def min_heap(temp):
     global right
     right += 1
@@ -37,35 +51,63 @@ def min_heap(temp):
             return
         i = t
         
+def min_check():
+    i = 1
+    temp = i * 2
+    while temp <= right:
+        if r_heap[i] < r_heap[temp] and r_heap[i] < r_heap[temp+1]:
+            return
+                    
+        if temp != right and r_heap[temp] > r_heap[temp+1]:
+            temp += 1
+        
+        r_heap[temp], r_heap[i] = r_heap[i], r_heap[temp]
+        
+        i = temp
+        temp = i * 2
+        
 
 def find(temp):
     global left, right, mid
-    
-    if mid >= temp:
-        #left
-        if left == right:
-            max_heap(temp)
-        else:
-            mid, temp = temp, mid
-            min_heap(temp)
-    else:
-        #right
-        if left == right:
-            mid, temp = temp, mid
-            max_heap(temp)
-        else:
-            min_heap(temp)
-    
-    return mid
-    
-    
 
-for i in range(N):
-    temp = int(input())
-    if i == 0:
-        max_heap(temp)
-        print(l_heap[1])
+    if mid <= temp:
+        if left == right: # 짝수
+            min_heap(temp)
+        else:
+            max_heap(temp)
+            if l_heap[1] > r_heap[1]:
+                t =r_heap[1]
+                r_heap[1] = l_heap[1]
+                l_heap[1] = mid
+                mid = t
+                min_check()
+            else:
+                l_heap[1], mid = mid, l_heap[1]
+            
     else:
-        print(find(temp))
-    print(l_heap)
-    print(r_heap)
+        if left == right:
+            min_heap(temp)
+            if left == 0 or l_heap[1] <= r_heap[1]:
+                r_heap[1], mid= mid, r_heap[1]
+            else:
+                t = r_heap[1]
+                r_heap[1] = mid
+                mid = l_heap[1]
+                l_heap[1] = t
+                max_check()
+
+        else:
+            max_heap(temp)
+
+    return mid
+
+result = []
+mid = int(input())
+# print(mid)
+result.append(mid)
+
+for i in range(N-1):
+    temp = int(input())
+    result.append(find(temp))
+    # print(find(temp))
+print(result)

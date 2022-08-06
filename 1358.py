@@ -6,7 +6,7 @@ def length(x,y,xr,yr,r):
     delta_x = (xr-x)**2
     delta_y = (yr-y)**2
     
-    if delta_x + delta_y < r**2:
+    if delta_x + delta_y <= r**2:
         return True
     return False
 
@@ -15,13 +15,13 @@ def isIn(x,y):
     if y < Y or y > Y+H:
         return False
     
-    if x > X-r and x < X:
+    if x >= X-r and x < X:
         return length(x,y,X,Y+r,r)
 
     if x >= X and x < X+W:
         return True
     
-    if x>= X+W and x < X+W+r:
+    if x>= X+W and x <= X+W+r:
         return length(x,y,X+W,Y+r,r)
     
     return False
