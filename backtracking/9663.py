@@ -1,14 +1,13 @@
 N = int(input())
 
 chess = [0 for i in range(N)]
-
 cnt = 0
 
-def isDig(i,index):
+def isDig(index):
     for j in range(index):
-        if i == chess[j] or (abs(j-index) == abs(chess[j]-i)):
-            return True
-    return False
+        if chess[index] == chess[j] or (abs(j-index) == abs(chess[j]-chess[index])):
+            return False
+    return True
     
 
 def check(index):
@@ -19,7 +18,7 @@ def check(index):
     
     for i in range(N):
         chess[index] = i
-        if not isDig(i, index):
+        if isDig(index):
             check(index+1)        
 
 check(0)
