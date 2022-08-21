@@ -16,9 +16,9 @@ def find():
     if N == 2:
         return result[1]
     
-    result[2] = n_list[2] + max(n_list[0], n_list[1])
+    result[2] = max(n_list[0] +n_list[1], n_list[0] + n_list[2], n_list[1] +n_list[2])
     for i in range(3,N):
-        result[i] = n_list[i] + max(n_list[i-1]+ result[i-3], result[i-2])
+        result[i] = max(result[i-1], n_list[i]+ result[i-2], n_list[i]+n_list[i-1]+result[i-3])
 
 find()
-print(result)
+print(result[-1])
