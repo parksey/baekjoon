@@ -16,7 +16,7 @@ for i in range(M):
      
 for k in node:
     node[k] = sorted(node[k], reverse=True)
-   
+
 count = 0
 visit=[0 for i in range(N)]
 
@@ -26,6 +26,9 @@ while stack:
     if visit[top-1] == 0:
         count +=1
         visit[top-1] = count
+
+    if top not in node:
+        continue
 
     for n in node[top]:
         if visit[n-1] == 0:
