@@ -7,7 +7,7 @@ def bfs(r):
     seq = 1
     while queue:
         first = queue.popleft()
-        print(visit)
+
         if visit[first-1] != 0:
             continue
         visit[first-1] = seq
@@ -40,8 +40,5 @@ for k in data_map:
 visit = [0] * N
 bfs(R)
 
-print(visit)
-
-
-
-    
+for i in visit:
+    print(i)
