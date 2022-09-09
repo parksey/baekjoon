@@ -1,45 +1,31 @@
 # https://www.acmicpc.net/board/view/68623
 N, C = map(int,input().split())
 
-union = []
-for i in range(N):
-    union.append(int(input()))
-    
-union.sort()
-cmake = C-2
+data = [int(input()) for i in range(N)]
+data.sort()
 
-def count(mid):
+def check(mid):
+    loc = data[0]
     cnt = 1
-    start = union[0]
-    for i in range(1,N):
-        if  mid <= union[i] - start:
-            start = union[i]
-            cnt+=1
-    return cnt
-# 1 2 4 8 9
-def solve(start, end):
-    if start>end:
-        return 0
-    
-    elif start == end:
-        ret = count(start)
-        if ret < C:
-            return -1
+    for d in data[1:]:
+        if d - loc >= mid:
+             loc = d
+             cnt += 1
+    return cnt >= C
 
-        return ret
-    
-    mid = (start + end) // 2
-    cnt = count(mid)
-
-    if cnt >= C: # mid 늘려줘야한다.
-        ret = solve(mid+1, end)
-        if ret == -1:
-            ret = mid
-        return ret
-    elif cnt < C:
-        return solve(start, mid-1)
+start = 0
+end = data[-1] - data[0]
+# 거리의 최대 값?
+# 설치 개수는 가지고 있는 개수보다 작거나 같아야한다.
+# 공유기 C개를 설치 해야하므로
+# c개 보다 적거나 같으면 거리를 줄여 더 많이 설치
+# c개 보다 많으면 거리를 늘려 더 적게 설치
+# 즉 만족하면 거리를 늘려 최대로 하면 된다.
+while start!=end:
+    mid = (start+end+1)//2
+    if check(mid):
+        start = mid
+    else:
+        end = mid -1
+print(start)
         
-if C == 2:
-    print(union[-1]-union[0])
-else:
-    print(solve(1,union[-1]-union[0]))
