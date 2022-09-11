@@ -16,7 +16,9 @@ def bfs(r):
         
         for d in data_map[first]:
             if not visit[d-1]:
-                queue.append(d)             
+                queue.append(d)  
+    if seq == 1:
+        visit[r-1] = 1           
     
 N, M, R = map(int, input().split())
 
