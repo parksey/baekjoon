@@ -11,7 +11,6 @@ v[N] = 0
 
 while queue:
     left = queue.popleft()
-    print(v[:5])
     if (left < 0) and left < 100001: continue
     
     if left *2 <= K*2 and  left*2 < 100001:
