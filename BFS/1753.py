@@ -26,16 +26,11 @@ def find():
     return index
         
 def solve(start):
-    for i in line[start]:
-        v_list[i[0]] = v_list[i[0]] if v_list[i[0]] <i[1] else i[1]         
-        
     v_list[start] = 0
-    visit[start] = 1
-    for i in range(V-1):
+    for i in range(V):
         index = find()
         visit[index] = 1
         for v in line[index]:
-            if visit[v[0]]: continue
             if v_list[index]+v[1] <  v_list[v[0]]:
                 v_list[v[0]] = v_list[index] + v[1]
 
