@@ -57,13 +57,9 @@ def solve():
         
         min_data =min(s2gh + algo(line_map, h)[t_data], s2hg + algo(line_map, g)[t_data])
         if min_data <= start_list[t_data]:
-            result.append(min_data)
+            result.append(t_data)
     return sorted(result) 
 
 
 for i in range(T):
     print(*solve())
-    
-
-    
-    
