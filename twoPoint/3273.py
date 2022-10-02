@@ -4,7 +4,6 @@ n_list = sorted(list(map(int, input().split())))
 
 X = int(input())
 
-print(n_list)
 i = 0
 j = N-1
 cnt = 0
@@ -19,10 +18,3 @@ while i < j:
         j-=1
         
 print(cnt)
-        
-        
-#         9
-# 5 12 7 10 9 1 2 3 11
-# 13
-
-# 1 2 3 5 7 9 10 11 12
