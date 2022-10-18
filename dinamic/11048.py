@@ -1,27 +1,21 @@
-from collections import deque
-
 N, M = map(int, input().split())
 
 candyMap = [list(map(int, input().split())) for i in range(N)]
 
 def solve():
-    queue = deque([[0,0, candyMap[0][0]]])
+    maxMap = [[0 for __ in range(M)] for _ in range(N)]
     
-    dir = [[0,1], [1,0], [1,1]]
-    max = 0
-    while queue:
-        left = queue.popleft()
+    maxMap[0][0] = candyMap[0][0]
+    
+    for n in range(1, N):
+        maxMap[n][0] = candyMap[n][0] + maxMap[n-1][0]
         
-        if left[0] == N-1 and left[1] == M-1:
-            max =  left[2] if max < left[2] else max
-            continue
-        
-        for d in dir:
-            y = d[0]+left[0]; x = d[1]+left[1]
-            
-            if y >= N or x>=M:
-                continue
-            
-            queue.append([y,x, left[2]+candyMap[y][x]])
-    print(max)
-solve()
+    for m in range(1,M):
+        maxMap[0][m] = candyMap[0][m] + maxMap[0][m-1]
+    
+    for n in range(1, N):
+        for m in range(1, M):
+            maxMap[n][m] = candyMap[n][m] + max(maxMap[n][m-1], maxMap[n-1][m], maxMap[n-1][m-1])
+    
+    return maxMap[N-1][M-1]
+print(solve())
