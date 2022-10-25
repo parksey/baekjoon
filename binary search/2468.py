@@ -1,9 +1,6 @@
 from collections import deque
-from distutils.command import check
-
 
 N = int(input())
-
 gMap = [list(map(int, input().split())) for i in range(N)]
 
 def find(rain, start, checkMap):
@@ -29,15 +26,12 @@ def find(rain, start, checkMap):
             queue.append([y-1,x])
         if x-1 >= 0:
             queue.append([y,x-1])
-    return 1
-        
-        
+    return 1 
             
 def solve():
-    rain = 1
+    rain = 0
     maxPart = 0
     while rain<=100:
-        print("rain : ",rain)
         checkMap = [[0]*N for i in range(N)]
         part = 0
         for i in range(N):
@@ -45,14 +39,11 @@ def solve():
                 if checkMap[i][j] != 0:
                     continue
                 part += find(rain, [i,j], checkMap)
-
         if maxPart < part:
-            
             maxPart = part
-        else:
+        elif maxPart > part: 
             return maxPart
         rain+=1
-
+ 
     return maxPart
-    
 print(solve())
