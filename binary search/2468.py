@@ -41,8 +41,6 @@ def solve():
                 part += find(rain, [i,j], checkMap)
         if maxPart < part:
             maxPart = part
-        elif maxPart > part: 
-            return maxPart
         rain+=1
  
     return maxPart
