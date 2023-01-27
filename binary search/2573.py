@@ -55,7 +55,5 @@ def solve():
         if cnt >= 2:
             return year
         year += 1
-    
-    return 0
 
 print(solve())
