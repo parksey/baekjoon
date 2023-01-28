@@ -49,7 +49,3 @@ def solve(chickenList, start):
     
 solve([],0)
 print(result)
-
-a =5
-if a == 3 \ 
-    or a == 4
