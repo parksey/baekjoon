@@ -1,16 +1,12 @@
 N = int(input())
 
+dp = [1 for i in range(10)]
+
 def solve():
-    if N == 1:
-        return 10
-    
-    dp = [[1 for _ in range(10)] for i in range(N)]
-    for i in range(1,N):
-        dp[i][0]=1
     
     for i in range(1,N):
-        for j in range(1,10):
-            dp[i][j] = dp[i][j-1] + dp[i-1][j]
-    return sum(dp[N-1])
+        for index in range(8, -1,-1):
+            dp[index] = (dp[index] + dp[index+1]) % 10007
     
-print(solve()%10007)
+solve()
+print(sum(dp)% 10007)
