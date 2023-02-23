@@ -1,17 +1,41 @@
-N, M = map(int, input().split())
+N = int(input())
+'''
+1 4 3 2
 
-def nm(datalist, startX, length):
-    if length == M:
-        print(" ".join(list(map(str, datalist))))
-        return True
+
+'''
+dataList = list(map(int, input().split()))
+
+def remove():
+    data = dataList.pop()
+    while data <= N:
+        data += 1
+        if data <= N and data not in dataList:
+            dataList.append(data)
+            return False
+    return True
+
+def add():
+    length = len(dataList)
+    if length == 0 or length > N:
+        return False
     
-    for i in range(1, N+1):
-        if i in datalist:
+    for i in range(1,N+1):
+        if i not in dataList:
+            dataList.append(i)
+            return
+
+def find():
+    while dataList:
+        if remove():
             continue
-        datalist.append(i)
-        nm(datalist, i+1, length+1)
-        datalist.pop()
-
-    return False
-
-nm([], 1 ,0)
+        
+        if not add():
+            break
+        
+    if not dataList:
+        print(-1)
+    else:
+        print(*dataList)
+    
+find()
