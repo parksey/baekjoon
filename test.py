@@ -1,41 +1,19 @@
+'''
+[특정한 색]과 [크기]를 가진 자기 공 하나를 조종하여 게임 참여
+
+목표 : 자기 공보다 크기가 작고 색이 다른 공을 사로잡아 공의 크기만큼 점수
+
+1. 4
+2. 3
+3. 0
+4. 1
+'''
+
+
+inputList = []
 N = int(input())
-'''
-1 4 3 2
+for i in range(N):
+    inputList.append(list(map(int,input().split())))
 
-
-'''
-dataList = list(map(int, input().split()))
-
-def remove():
-    data = dataList.pop()
-    while data <= N:
-        data += 1
-        if data <= N and data not in dataList:
-            dataList.append(data)
-            return False
-    return True
-
-def add():
-    length = len(dataList)
-    if length == 0 or length > N:
-        return False
-    
-    for i in range(1,N+1):
-        if i not in dataList:
-            dataList.append(i)
-            return
-
-def find():
-    while dataList:
-        if remove():
-            continue
-        
-        if not add():
-            break
-        
-    if not dataList:
-        print(-1)
-    else:
-        print(*dataList)
-    
-find()
+inputList.sort(key = lambda x: x[1])
+print(inputList)
