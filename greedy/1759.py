@@ -59,7 +59,6 @@ def keyFunction(index, data):
             data.pop()
 
 def solve():
-    print(alphabet)
     data = Data()
     keyFunction(0, data) 
 solve()   
