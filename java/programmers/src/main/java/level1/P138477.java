@@ -1,3 +1,5 @@
+package level1;
+
 import java.util.*;
 public class P138477 {
     public void solve() {
