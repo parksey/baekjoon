@@ -1,5 +1,7 @@
 package level1;
 import java.util.*;
+import java.util.stream.Collectors;
+
 public class P134240 {
     public static void solve() {
         SolutionP134240 sol = new SolutionP134240();
@@ -37,5 +39,31 @@ class SolutionP134240 {
         for (int i=0; i < during/2; i++) {
             sb.append(data);
         }
+    }
+    public String solution(String s) {
+        String answer = "";
+
+        List<String> temp = Arrays.stream(s.split(" "))
+                .map(splitS -> {
+                    char[] t = splitS.toCharArray();
+                    for (int i = 0; i < t.length; i++) {
+                        if (t[i] >='a' && t[i] <= 'z') {
+                            t[i] = (char)(t[i] - 'a' + 'A');
+                            break;
+                        }
+                    }
+                    return new String(t);
+                })
+                .collect(Collectors.toList());
+        System.out.println(temp);
+        int[] B = {1,2,3,4};
+        Arrays.sort(B, new Comparator<Integer>() {
+
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        });
+
     }
 }
