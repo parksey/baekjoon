@@ -56,14 +56,6 @@ class SolutionP134240 {
                 })
                 .collect(Collectors.toList());
         System.out.println(temp);
-        int[] B = {1,2,3,4};
-        Arrays.sort(B, new Comparator<Integer>() {
-
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return 0;
-            }
-        });
-
+        return answer;
     }
 }

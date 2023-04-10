@@ -26,8 +26,5 @@ public class P138477Test {
                         .collect(Collectors.toList());
         assertThat(aTest).isEqualTo(12);
 
-        String st = "1";
-        StringBuilder sb = new StringBuilder();
-        sb.();
     }
 }
