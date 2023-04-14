@@ -22,4 +22,10 @@ public class Level2Test {
         assertThat(p.solution("01110")).isEqualTo(new int[]{3,3});
         assertThat(p.solution("1111111")).isEqualTo(new int[]{4,1});
     }
+
+    @Test
+    public void p12924() {
+        P12924 p = new P12924();
+        assertThat(p.solution(15)).isEqualTo(4);
+    }
 }
