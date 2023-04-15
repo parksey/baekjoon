@@ -1,5 +1,7 @@
 package level2;
 
+import problem.Problem;
+
 public class P12924 {
     public int solution(int n) {
         int answer = 0;

@@ -28,4 +28,11 @@ public class Level2Test {
         P12924 p = new P12924();
         assertThat(p.solution(15)).isEqualTo(4);
     }
+
+    @Test
+    public void p12911() {
+        P12911 p = new P12911();
+        assertThat(p.solution(78)).isEqualTo(83);
+        assertThat(p.solution(15)).isEqualTo(23);
+    }
 }
