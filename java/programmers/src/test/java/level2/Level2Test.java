@@ -50,4 +50,12 @@ public class Level2Test {
         assertThat(new int[]{0, 0}).isEqualTo(p.solution(5, new String[]{"hello", "observe", "effect", "take", "either", "recognize", "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"}));
         assertThat(new int[]{1,3}).isEqualTo(p.solution(2, new String[]{"hello", "one", "even", "never", "now", "world", "draw"}));
     }
+
+    @Test
+    public void p42842() {
+        P42842 p = new P42842();
+        assertThat(new int[]{4,3}).isEqualTo(p.solution(10,2));
+        assertThat(new int[]{8,1}).isEqualTo(p.solution(8,1));
+        assertThat(new int[]{24,24}).isEqualTo(p.solution(24,24));
+    }
 }
