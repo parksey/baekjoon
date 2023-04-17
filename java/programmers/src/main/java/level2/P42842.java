@@ -1,5 +1,7 @@
 package level2;
 
+import java.util.function.Predicate;
+
 public class P42842 {
     public int[] solution(int brown, int yellow) {
         int[] answer = {};
@@ -22,5 +24,9 @@ public class P42842 {
 
     public boolean canMake(int brown, int x, int y) {
         return (x*2+y*2 -4)==brown ? true : false;
+    }
+
+    public void m (Predicate<Integer> t) {
+
     }
 }

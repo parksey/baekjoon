@@ -1,6 +1,9 @@
 package level2;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,5 +60,12 @@ public class Level2Test {
         assertThat(new int[]{4,3}).isEqualTo(p.solution(10,2));
         assertThat(new int[]{8,1}).isEqualTo(p.solution(8,1));
         assertThat(new int[]{24,24}).isEqualTo(p.solution(24,24));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"5, 2","6, 2","5000, 5","10, 2"})
+    public void p12980(int data, int ret) {
+        P12980 p = new P12980();
+        assertThat(ret).isEqualTo(p.solution(data));
     }
 }
