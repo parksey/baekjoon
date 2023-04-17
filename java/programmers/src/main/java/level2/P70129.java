@@ -1,5 +1,6 @@
 package level2;
 
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class P70129 {
@@ -28,7 +29,7 @@ public class P70129 {
         StringBuilder sb = new StringBuilder();
 
         while (value > 1) {
-            sb.append(value % 2);
+            sb.append(value%2);
             value /= 2;
         }
         sb.append(value);
