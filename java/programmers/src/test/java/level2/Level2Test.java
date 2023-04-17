@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -67,5 +68,17 @@ public class Level2Test {
     public void p12980(int data, int ret) {
         P12980 p = new P12980();
         assertThat(ret).isEqualTo(p.solution(data));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"2,6,8,14,168", "1,2,3,6"})
+    public void p12953(String args) {
+        List<Integer> datas = Arrays.stream(args.split(","))
+                .mapToInt(value -> Integer.parseInt(value)).boxed().collect(Collectors.toList());
+
+        int ret = datas.remove(datas.size()-1);
+
+        P12953 p = new P12953();
+        assertThat(ret).isEqualTo(p.solution(datas.stream().mapToInt(Integer::intValue).toArray()));
     }
 }

@@ -1,5 +1,7 @@
 package level2;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.function.Predicate;
 
 public class P42842 {
@@ -26,7 +28,4 @@ public class P42842 {
         return (x*2+y*2 -4)==brown ? true : false;
     }
 
-    public void m (Predicate<Integer> t) {
-
-    }
 }
