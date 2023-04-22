@@ -106,4 +106,12 @@ public class Level2Test {
 
         assertThat(result).isEqualTo(new P138476().solution(k, tangerine));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"[](){} 3", "}]()[{ 2"	, "[)(] 0"	,"}}} 0"})
+    public void p76502(String s) {
+        String[] test = s.split(" ");
+        P76502 p = new P76502();
+        assertThat(Integer.parseInt(test[1])).isEqualTo(p.solution(test[0]));
+    }
 }
