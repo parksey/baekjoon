@@ -125,4 +125,21 @@ public class Level2Test {
         assertThat(Integer.parseInt(test[2])).isEqualTo(p.solution(Integer.parseInt(test[0]), test[1].split(",")));
 
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"yellow_hat,headgear:blue_sunglasses,eyewear:green_turban,headgear-5"})
+    public void p42578(String s) {
+        String[] test = s.split("-");
+
+        String[] temp = test[0].split(":");
+        int size = temp.length;
+
+        String[][] t = new String[size][2];
+        for (int i = 0; i < size; i++) {
+            t[i] = temp[i].split(",");
+        }
+
+        P42578 p = new P42578();
+        assertThat(Integer.parseInt(test[1])).isEqualTo(p.solution(t));
+    }
 }
