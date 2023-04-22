@@ -114,4 +114,15 @@ public class Level2Test {
         P76502 p = new P76502();
         assertThat(Integer.parseInt(test[1])).isEqualTo(p.solution(test[0]));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"3:Jeju,Pangyo,Seoul,NewYork,LA,Jeju,Pangyo,Seoul,NewYork,LA:50"})
+    public void p17680(String s) {
+        P17680 p = new P17680();
+
+        String[] test = s.split(":");
+
+        assertThat(Integer.parseInt(test[2])).isEqualTo(p.solution(Integer.parseInt(test[0]), test[1].split(",")));
+
+    }
 }
