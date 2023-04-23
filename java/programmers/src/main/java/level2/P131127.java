@@ -1,5 +1,7 @@
 package level2;
 import java.util.*;
+import java.util.stream.Collectors;
+
 public class P131127 {
     public int solution(String[] want, int[] number, String[] discount) {
         Buy buy = new Buy(want, number);
@@ -55,6 +57,7 @@ class Buy {
 
 
     public boolean canBuy(Map<String, Integer> copy) {
+
         return copy.values().stream()
                 .allMatch(v -> v==0);
     }

@@ -166,5 +166,13 @@ public class Level2Test {
         assertThat(answer).isEqualTo(new P17677().solution(str1,str2));
     }
 
-
+    @ParameterizedTest
+    @CsvSource({"1:1:1:1:1,3,5"
+    ,"4:1:2:1,4,2"})
+    public void p43165(String numbers, int target, int ret) {
+        int[] nums = Arrays.stream(numbers.split(":"))
+                        .mapToInt(Integer::parseInt)
+                                .toArray();
+        assertThat(ret).isEqualTo(new P43165().solution(nums,target));
+    }
 }
