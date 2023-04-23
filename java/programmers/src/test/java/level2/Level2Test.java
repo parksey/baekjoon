@@ -142,4 +142,18 @@ public class Level2Test {
         P42578 p = new P42578();
         assertThat(Integer.parseInt(test[1])).isEqualTo(p.solution(t));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"{{2},{2,1},{2,1,3},{2,1,3,4}}:2, 1, 3, 4"
+                            , "{{1,2,3},{2,1},{1,2,4,3},{2}}:2, 1, 3, 4"})
+    public void p64065(String s) {
+        String[] test = s.split(":");
+
+        int[] result = Arrays.stream(test[1].split(", "))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        P64065 p = new P64065();
+        assertThat(result).isEqualTo(p.solution(test[0]));
+    }
 }
