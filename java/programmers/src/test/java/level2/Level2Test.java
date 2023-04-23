@@ -156,4 +156,15 @@ public class Level2Test {
         P64065 p = new P64065();
         assertThat(result).isEqualTo(p.solution(test[0]));
     }
+
+    @ParameterizedTest
+    @CsvSource({"FRANCE,french,16384"
+    ,"handshake,shake hands,65536"
+    ,"aa1+aa2,AAAA12,43690"
+    ,"E=M*C^2,e=m*c^2,65536"})
+    public void p17677(String str1, String str2, int answer) {
+        assertThat(answer).isEqualTo(new P17677().solution(str1,str2));
+    }
+
+
 }

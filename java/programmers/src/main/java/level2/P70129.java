@@ -13,8 +13,6 @@ public class P70129 {
             answer[0]++;
             s = getBinary(nextValue);
         }
-
-
         return answer;
     }
 
@@ -33,7 +31,10 @@ public class P70129 {
             value /= 2;
         }
         sb.append(value);
+        Map<String, Integer> a = new HashMap<>();
 
         return sb.reverse().toString();
+        // 0010 0000
+        // 1111 1111
     }
 }
