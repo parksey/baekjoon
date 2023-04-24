@@ -183,4 +183,12 @@ public class Level2Test {
     public void p92335(int n, int k, int result) {
         assertThat(result).isEqualTo(new P92335().solution(n,k));
     }
+
+    @ParameterizedTest
+    @CsvSource({"2,4,2,1,0111"
+    ,"16,16,2,1,02468ACE11111111"
+    ,"16,16,2,2,13579BDF01234567"})
+    public void p17678(int n, int t, int m, int p, String result) {
+        assertThat(result).isEqualTo(new P17678().solution(n,t,m,p));
+    }
 }
