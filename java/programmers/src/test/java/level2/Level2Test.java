@@ -173,6 +173,14 @@ public class Level2Test {
         int[] nums = Arrays.stream(numbers.split(":"))
                         .mapToInt(Integer::parseInt)
                                 .toArray();
+        
         assertThat(ret).isEqualTo(new P43165().solution(nums,target));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"437674,3,3,"
+            ,"110011,10,2"})
+    public void p92335(int n, int k, int result) {
+        assertThat(result).isEqualTo(new P92335().solution(n,k));
     }
 }
