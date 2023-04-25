@@ -217,5 +217,7 @@ public class Level2Test {
                         .toArray())
                 .toArray(int[][]::new);
         assertThat(Integer.parseInt(t[1])).isEqualTo(new P12913().solution(data));
+
+
     }
 }
