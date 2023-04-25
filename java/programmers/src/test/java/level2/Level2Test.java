@@ -201,4 +201,21 @@ public class Level2Test {
 
         assertThat(t[1].split(",")).isEqualTo(new P42888().solution(t[0].split(",")));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings= {
+            "1,2,3,5_5,6,7,8_4,3,2,1:16"
+    })
+    public void p12913(String test) {
+        String[] t = test.split(":");
+
+        String[] param = t[0].split("_");
+
+        int[][] data = Arrays.stream(param)
+                .map(s -> Arrays.stream(s.split(","))
+                        .mapToInt(Integer::parseInt)
+                        .toArray())
+                .toArray(int[][]::new);
+        assertThat(Integer.parseInt(t[1])).isEqualTo(new P12913().solution(data));
+    }
 }
