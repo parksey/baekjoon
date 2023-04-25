@@ -5,10 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -190,5 +187,8 @@ public class Level2Test {
     ,"16,16,2,2,13579BDF01234567"})
     public void p17678(int n, int t, int m, int p, String result) {
         assertThat(result).isEqualTo(new P17678().solution(n,t,m,p));
+
+        Map<String, Integer> a = new HashMap<>();
+        a.values();
     }
 }
