@@ -220,4 +220,15 @@ public class Level2Test {
 
 
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "AAAAE,6"
+            ,"AAAE,10"
+            ,"I,1563"
+            ,"EIO,1189"
+    })
+    public void p84512(String param, int result) {
+        assertThat(result).isEqualTo(new P84512().solution(param));
+    }
 }
