@@ -231,4 +231,18 @@ public class Level2Test {
     public void p84512(String param, int result) {
         assertThat(result).isEqualTo(new P84512().solution(param));
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "2_3_3_5,3_5_5_-1"
+            ,"9_1_5_3_6_2,-1_5_6_6_-1_-1"
+    })
+    public void p154539(String param, String result) {
+        assertThat(Arrays.stream(result.split("_"))
+                .mapToInt(Integer::parseInt)
+                .toArray())
+                .isEqualTo(new P154539().solution(Arrays.stream(param.split("_"))
+                        .mapToInt(Integer::parseInt)
+                        .toArray()));
+    }
 }
