@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -242,6 +243,18 @@ public class Level2Test {
                 .mapToInt(Integer::parseInt)
                 .toArray())
                 .isEqualTo(new P154539().solution(Arrays.stream(param.split("_"))
+                        .mapToInt(Integer::parseInt)
+                        .toArray()));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "4_3_1_2_5,2"
+            ,"5_4_3_2_1,5"
+    })
+    public void p131704(String order, int result) {
+        assertThat(result).isEqualTo(new P131704().solution(
+                Arrays.stream(order.split("_"))
                         .mapToInt(Integer::parseInt)
                         .toArray()));
     }
