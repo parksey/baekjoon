@@ -258,4 +258,19 @@ public class Level2Test {
                         .mapToInt(Integer::parseInt)
                         .toArray()));
     }
+
+    @Test
+    public void solution() {
+        String[] orders = {"zyx", "cba"};
+        String[] answer = {};
+
+        for (int i = 0; i < orders.length; i++) {
+            orders[i].chars
+
+
+
+            System.out.println(orders[i]);
+        }
+
+    }
 }
