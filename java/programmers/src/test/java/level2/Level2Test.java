@@ -261,16 +261,6 @@ public class Level2Test {
 
     @Test
     public void solution() {
-        String[] orders = {"zyx", "cba"};
-        String[] answer = {};
-
-        for (int i = 0; i < orders.length; i++) {
-            orders[i].chars
-
-
-
-            System.out.println(orders[i]);
-        }
 
     }
 }
