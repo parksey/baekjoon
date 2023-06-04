@@ -261,6 +261,8 @@ public class Level2Test {
 
     @Test
     public void solution() {
-
+        Integer a = 3;
+        StringBuffer sf = new StringBuffer();
     }
+
 }

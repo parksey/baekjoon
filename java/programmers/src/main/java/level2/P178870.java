@@ -1,5 +1,7 @@
 package level2;
 
+import java.util.Stack;
+
 public class P178870 {
     public int[] solution(int[] sequence, int k) {
         Seq seq = new Seq(sequence);
