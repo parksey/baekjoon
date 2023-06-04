@@ -4,7 +4,7 @@ import java.util.*;
 
 public class P154540  {
     public int[] solution(String[] maps) {
-        Location.setSize(maps.length, maps[0].length());
+        Location154540.setSize(maps.length, maps[0].length());
 
         List<Integer> ret = findIsland(maps);
 
@@ -34,15 +34,15 @@ public class P154540  {
                     continue;
                 }
 
-                ret.add(makeIsland(visit, maps, new Location(i,j)));
+                ret.add(makeIsland(visit, maps, new Location154540(i,j)));
             }
         }
         return ret;
     }
 
-    public int makeIsland(boolean[][] visit, String[] maps, Location start) {
+    public int makeIsland(boolean[][] visit, String[] maps, Location154540 start) {
         int count = 0;
-        Queue<Location> locations = new LinkedList<>();
+        Queue<Location154540> locations = new LinkedList<>();
 
         locations.add(start);
         visit[start.getY()][start.getX()] = true;
@@ -51,10 +51,10 @@ public class P154540  {
         int[][] direction = {{-1,0}, {0,-1}, {1,0}, {0,1}};
 
         while (!locations.isEmpty()) {
-            Location cur = locations.remove();
+            Location154540 cur = locations.remove();
 
             for (int[] dir : direction) {
-                Location newLoc = cur.move(dir[0], dir[1]);
+                Location154540 newLoc = cur.move(dir[0], dir[1]);
 
                 if (newLoc.outOfRange()) {
                     continue;
@@ -72,19 +72,19 @@ public class P154540  {
         return count;
     }
 
-    public int getData(String[] maps, Location loc) {
+    public int getData(String[] maps, Location154540 loc) {
         return maps[loc.getY()].charAt(loc.getX()) - '0';
     }
 }
 
-class Location {
+class Location154540 {
     private static int X_SIZE;
     private static int Y_SIZE;
 
     private int x;
     private int y;
 
-    public Location(int y, int x) {
+    public Location154540(int y, int x) {
         this.x = x;
         this.y = y;
     }
@@ -102,8 +102,8 @@ class Location {
         return y;
     }
 
-    public Location move(int y, int x) {
-        return new Location(this.y+y, this.x+x);
+    public Location154540 move(int y, int x) {
+        return new Location154540(this.y+y, this.x+x);
     }
 
     public boolean outOfRange() {
